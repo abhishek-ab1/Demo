@@ -7,11 +7,11 @@ const req = axios.create({
 
 export const getAllPosts = (callBack=null) => dispatch => {
     req.get("posts").then(res=> {
-        console.log(res)
-        dispatch({
-            type : actionTypes.GET_POSTS,
-            payload : res.data
-        })
+        if(res)
+            dispatch({
+                type : actionTypes.GET_POSTS,
+                payload : res.data || []
+             })
     }).catch(error => {
         console.log(error)
     }).finally(res => {
@@ -22,10 +22,11 @@ export const getAllPosts = (callBack=null) => dispatch => {
 export const createPost = (data, callBack=null) => dispatch => {
     req.post("posts", data).then(res=> {
         console.log(res)
-        dispatch({
-            type : actionTypes.CREATE_POST,
-            payload : res.data
-        })
+        if(res)
+            dispatch({
+                type : actionTypes.CREATE_POST,
+                payload : res.data || []
+             })
     }).catch(error => {
         console.log(error)
     }).finally(res => {
@@ -36,10 +37,11 @@ export const createPost = (data, callBack=null) => dispatch => {
 export const getPost = (id, callBack=null) => dispatch => {
     req.get(`posts/${id}`).then(res=> {
         console.log(res)
-        dispatch({
-            type : actionTypes.FETCH_POST,
-            payload : res.data
-        })
+        if(res)
+            dispatch({
+                type : actionTypes.FETCH_POST,
+                payload : res.data || []
+            })
     }).catch(error => {
         console.log(error)
     }).finally(res => {
