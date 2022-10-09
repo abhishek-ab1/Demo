@@ -10,9 +10,10 @@ export const MyContext = createContext(10)
 
 function App() {
   return (
-    <>
+    <div>
       <Router>
         <Navbar />
+        //  -----  Redux provider -------
         <MyContext.Provider value={10}>
         <Switch>
           <Routes />
@@ -20,7 +21,7 @@ function App() {
         </Switch>
         </MyContext.Provider>
       </Router>
-    </>
+    </div>
   );
 }
 
