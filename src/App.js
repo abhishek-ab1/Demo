@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch } from 'react-router-dom'
 import Routes from './components/routes'
 import {createContext} from 'react'
 // import {createContext} from 'react'
+//
 
 export const MyContext = createContext(10)
 
